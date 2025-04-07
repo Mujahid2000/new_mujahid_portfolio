@@ -382,11 +382,11 @@ const App = () => {
       <Element name="home">
         <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 to-transparent"></div>
-          <div className="relative z-10 text-center px-4">
+          <div className="relative   z-10 text-center px-4">
             <h1 className="text-4xl md:text-5xl xl:text-7xl font-extrabold text-white mb-4 animate-fade-in">
               Mujahidul Islam
             </h1>
-            <p className="text-lg md:text-2xl text-gray-300 px-2 text-justify mb-8 animate-typewriter">
+            <p className=" text-wrap text-lg md:text-2xl text-gray-300 px-2 text-justify mb-8 md:animate-typewriter">
               {tagline}
               <span className="animate-blink">|</span>
             </p>
@@ -772,7 +772,7 @@ const App = () => {
                 <h3 className="text-2xl font-semibold text-indigo-400 mt-8 mb-4">
                   Follow Me
                 </h3>
-                <div className="flex justify-center gap-6">
+                <div className="flex md:justify-start gap-6">
                   <Link
                     to="https://github.com/Mujahid2000"
                     target="_blank"
