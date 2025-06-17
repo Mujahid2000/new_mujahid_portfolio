@@ -850,7 +850,7 @@ const Portfolio = () => {
                 className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
                 style={{ animationDelay: "1000ms" }}
               >
-                <Facebook className="w-6 h-6 text-white" />
+                <Facebook className="w-5 h-5 text-white" />
               </a>
                       </div>
                     </div>
