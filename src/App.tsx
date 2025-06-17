@@ -847,7 +847,7 @@ const Portfolio = () => {
                 href="https://www.facebook.com/mujahidul.islam.1656854"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
+                className="w-10 h-10 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
                 style={{ animationDelay: "1000ms" }}
               >
                 <Facebook className="w-5 h-5 text-white" />
