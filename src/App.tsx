@@ -185,7 +185,7 @@ const projects = [
       "JWT",
     ],
     image: "https://i.ibb.co/x1BJf5x/picture.png",
-    liveLink: "https://fitness-website-amber.vercel.app/",
+    liveLink: "https://gym-center-eta.vercel.app/",
     clientCode: "https://github.com/Mujahid2000/gym-center",
     serverCode: "https://github.com/Mujahid2000/gym-server",
   },
@@ -430,7 +430,7 @@ const Portfolio = () => {
                 <Github className="w-6 h-6 text-white" />
               </a>
               <a
-                href="https://facebook.com"
+                href="https://www.facebook.com/mujahidul.islam.1656854"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
@@ -699,7 +699,9 @@ const Portfolio = () => {
         <section id="projects" className="py-20 bg-gray-950">
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 text-white animate-fade-in">
-              My Projects
+              My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                  Projects
+                </span>
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
@@ -733,7 +735,7 @@ const Portfolio = () => {
                     </div>
 
                     {/* Project Buttons */}
-                    <div className="flex flex-wrap gap-3">
+                    <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3">
                       <a
                         href={project?.liveLink}
                         target="_blank"
@@ -778,7 +780,9 @@ const Portfolio = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-6 text-white animate-slide-in-left">
-                Get In Touch
+                Get In <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
+                  Touch
+                </span>
               </h2>
               <p className="text-lg text-slate-400">
                 I'm always open to discussing new opportunities and interesting projects
@@ -840,13 +844,14 @@ const Portfolio = () => {
                           <Linkedin className="h-5 w-5" />
                         </a>
                         <a
-                          href="https://twitter.com"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-center w-10 h-10 bg-sky-500 hover:bg-sky-600 text-white rounded-full transition-colors duration-200"
-                        >
-                          <Twitter className="h-5 w-5" />
-                        </a>
+                href="https://www.facebook.com/mujahidul.islam.1656854"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
+                style={{ animationDelay: "1000ms" }}
+              >
+                <Facebook className="w-6 h-6 text-white" />
+              </a>
                       </div>
                     </div>
                   </div>
@@ -901,7 +906,7 @@ const Portfolio = () => {
       </Element>
 
       {/* Custom CSS for Animations */}
-      <style jsx>{`
+      <style>{`
         @keyframes fade-in {
           0% {
             opacity: 0;
