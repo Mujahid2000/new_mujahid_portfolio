@@ -1,8 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Link as ScrollLink, Element, scroller } from "react-scroll"
-import { Link, useLocation } from "react-router-dom"
+import { Element, scroller } from "react-scroll"
 import {
   Github,
   Globe,
@@ -12,137 +11,164 @@ import {
   Send,
   Twitter,
   Code,
-  Database,
   Server,
   Palette,
   Zap,
   Award,
+  Facebook,
+  Wrench,
+  FileCode,
 } from "lucide-react"
 
-// Skills Data with Categories and Transparent Backgrounds
+// Skills Data with New Categories
 const skillCategories = [
+  {
+    title: "Programming Languages",
+    icon: <Code className="w-6 h-6" />,
+    color: "from-yellow-500 to-orange-500",
+    skills: [
+      {
+        name: "TypeScript",
+        imageUrl: "https://static-00.iconduck.com/assets.00/typescript-icon-icon-2048x2048-2rhh1z66.png",
+      },
+      {
+        name: "JavaScript",
+        imageUrl: "https://i.ibb.co/XSjWDqn/javascript-logo-javascript-icon-transparent-free-png.webp",
+      }
+    ],
+  },
   {
     title: "Frontend",
     icon: <Palette className="w-6 h-6" />,
     color: "from-pink-500 to-rose-500",
     skills: [
       {
-        name: "HTML",
-        imageUrl: "https://i.ibb.co.com/vD7yky7/html-5-svgrepo-com.png",
-        level: 90,
-      },
-      {
-        name: "CSS",
-        imageUrl: "https://i.ibb.co/XsCzgdZ/4672509.png",
-        level: 85,
-      },
-      {
-        name: "JavaScript",
-        imageUrl: "https://i.ibb.co/XSjWDqn/javascript-logo-javascript-icon-transparent-free-png.webp",
-        level: 88,
-      },
-      {
-        name: "Tailwind CSS",
-        imageUrl: "https://i.ibb.co.com/G9hfn8m/social-square.png",
-        level: 92,
-      },
-      {
         name: "React",
         imageUrl: "https://i.ibb.co.com/nnyGwqS/react.png",
-        level: 90,
       },
       {
         name: "React Router",
         imageUrl: "https://i.ibb.co.com/7j03tvX/React-Router-logo-vector-01.webp",
-        level: 85,
       },
       {
         name: "Next.Js",
         imageUrl: "https://i.ibb.co/N7FrTLX/nextjs-boilerplate-logo.png",
-        level: 82,
       },
       {
         name: "VueJs",
         imageUrl: "https://i.ibb.co.com/GvmZ0cK/vuejs.png",
-        level: 75,
+      },
+      {
+        name: "HTML",
+        imageUrl: "https://i.ibb.co.com/vD7yky7/html-5-svgrepo-com.png",
+      },
+      {
+        name: "CSS",
+        imageUrl: "https://i.ibb.co/XsCzgdZ/4672509.png",
+      },
+      {
+        name: "Redux Toolkit",
+        imageUrl: "https://static-00.iconduck.com/assets.00/redux-icon-2048x1945-ahvhunxp.png",
+      },
+      {
+        name: "Tailwind CSS",
+        imageUrl: "https://i.ibb.co.com/G9hfn8m/social-square.png",
+      },
+      {
+        name: "Tanstack Query",
+        imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750187396/react-query-logo-png_seeklogo-435661-removebg-preview_aszg3v.png",
+      },
+      {
+        name: "Socket.IO",
+        imageUrl: "https://static-00.iconduck.com/assets.00/socket-io-icon-512x511-xjp7kzx6.png",
       },
     ],
   },
   {
-    title: "Backend",
+    title: "Backend & Database",
     icon: <Server className="w-6 h-6" />,
     color: "from-green-500 to-emerald-500",
     skills: [
       {
         name: "Node.JS",
         imageUrl: "https://i.ibb.co.com/cDsWtZh/node-js-emblem-vector-28501403.png",
-        level: 85,
       },
       {
         name: "Express.Js",
         imageUrl: "https://www.domeniclabbate.com/_next/static/media/express.27b48634.png",
-        level: 88,
       },
-    ],
-  },
-  {
-    title: "Database",
-    icon: <Database className="w-6 h-6" />,
-    color: "from-blue-500 to-cyan-500",
-    skills: [
+      {
+        name: "JWT",
+        imageUrl: "https://img.icons8.com/?size=512&id=rHpveptSuwDz&format=png",
+      },
       {
         name: "MongoDB",
         imageUrl: "https://i.ibb.co.com/VprbZL8/images.png",
-        level: 85,
       },
       {
         name: "Mongoose",
         imageUrl: "https://i.ibb.co/GkTRSrg/mongoose.png",
-        level: 82,
       },
       {
         name: "PostgreSQL",
         imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1743934206/postgress_xgdm6b.png",
-        level: 78,
       },
       {
         name: "MySQL",
         imageUrl: "https://i.ibb.co/fGhD2LV/logo-mysql-cdb-for-mysql-7.png",
-        level: 80,
       },
       {
         name: "Supabase",
         imageUrl: "https://i.ibb.co.com/ZxXbpVC/supabase-logo-DCC676-FFE2-seeklogo-com.png",
-        level: 75,
       },
       {
         name: "Firebase",
         imageUrl: "https://i.ibb.co.com/N1kLXqm/firebase.png",
-        level: 80,
-      },
+      }
     ],
   },
   {
-    title: "Tools & Others",
-    icon: <Code className="w-6 h-6" />,
+    title: "Tools",
+    icon: <Wrench className="w-6 h-6" />,
     color: "from-purple-500 to-indigo-500",
     skills: [
       {
         name: "GitHub",
         imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1743934427/github1_u9nqf4.png",
-        level: 90,
       },
       {
         name: "Git",
         imageUrl: "https://i.ibb.co.com/m6K0VCp/images11-removebg-preview.png",
-        level: 88,
+      },
+      {
+        name: "Postman",
+        imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750187710/images-removebg-preview_uncew1.png",
+      },
+      {
+        name: "VS code",
+        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
+      },
+      {
+        name: "VS code",
+        imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750187853/png-transparent-figma-app-logo-tech-companies-thumbnail-removebg-preview_hrhrvy.png",
       },
     ],
   },
 ]
 
-// Updated Projects Data with Tech Stack and Image
+// Updated Projects Data with Client and Server Code Links
 const projects = [
+  {
+    title: "My-Jobs",
+    description: "Fitness centers are the best way to stay fit and keep good health .",
+    techStack: [
+      "Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase", "PayPal API", "Socket.io", "Redux", "Cloudinary", "Nodemailer", "TailwindCSS", "Shadcn/UI", "React Hook Form", "Lenis", "React-Quill-New" 
+    ],
+    image: "https://res.cloudinary.com/diez3alve/image/upload/v1750188666/screencapture-my-job-brown-vercel-app-2025-06-18-01_29_34_wc1nld.png",
+    liveLink: "https://my-job-brown.vercel.app/",
+    clientCode: "https://github.com/Mujahid2000/myJob",
+    serverCode: "https://github.com/Mujahid2000/Job-server",
+  },
   {
     title: "Fitness Center",
     description: "Fitness centers are the best way to stay fit and keep good health .",
@@ -159,7 +185,9 @@ const projects = [
       "JWT",
     ],
     image: "https://i.ibb.co/x1BJf5x/picture.png",
-    href: "https://fitness-website-amber.vercel.app/",
+    liveLink: "https://fitness-website-amber.vercel.app/",
+    clientCode: "https://github.com/Mujahid2000/gym-center",
+    serverCode: "https://github.com/Mujahid2000/gym-server",
   },
   {
     title: "BazarBD",
@@ -177,33 +205,40 @@ const projects = [
       "JWT",
     ],
     image: "https://i.ibb.co.com/JtCdBLj/Screenshot-2024-11-28-164337.png",
-    href: "https://bazar-bd.vercel.app/",
+    liveLink: "https://bazar-bd.vercel.app/",
+    clientCode: "https://github.com/Mujahid2000/BazarBD-client",
+    serverCode: "https://github.com/Mujahid2000/BazarBD-server",
   },
   {
     title: "Restaurant",
     description: "Food selling platform for selling fast-food with some other's food item's",
     techStack: ["Vue.Js", "Tailwind CSS", "Node.js", "Express.js", "Firebase", "MongoDB", " Mongoose"],
     image: "https://i.ibb.co.com/CnQV9wS/Screenshot-2-10-2024-19657-restaurant-beta-lemon-vercel-app.jpg",
-    href: "https://restaurant-beta-lemon.vercel.app/",
+    liveLink: "https://restaurant-beta-lemon.vercel.app/",
+    clientCode: "https://github.com/Mujahid2000/Restaurant-client",
+    serverCode: "https://github.com/Mujahid2000/Restaurant-server",
   },
   {
     title: "Streme",
     description: "Video streaming platform, Play video for your entertainment.",
     techStack: ["Next.Js", "Tailwind CSS", "Node.js", "Express.js", "Firebase", "MongoDB", " Mongoose"],
     image: "https://i.ibb.co/xDbddgt/image-1.jpg",
-    href: "https://streme-eight.vercel.app/",
+    liveLink: "https://streme-eight.vercel.app/",
+    clientCode: "https://github.com/Mujahid2000/Streme-client",
+    serverCode: "https://github.com/Mujahid2000/Streme-server",
   },
   {
     title: "Home Decor",
     description: "E-commerce platform for selling  home decor items.",
     techStack: ["Next.Js", "Tailwind CSS", "Firebase", "MongoDB", " Mongoose"],
     image: "https://i.ibb.co/DpWjpMk/image-6.jpg",
-    href: "https://next-js-full-stack-nu.vercel.app/",
+    liveLink: "https://next-js-full-stack-nu.vercel.app/",
+    clientCode: "https://github.com/Mujahid2000/HomeDecor-client",
+    serverCode: "https://github.com/Mujahid2000/HomeDecor-server",
   },
 ]
 
-const App = () => {
-  const location = useLocation()
+const Portfolio = () => {
   const [activeSection, setActiveSection] = useState<string>("home")
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
@@ -231,7 +266,7 @@ const App = () => {
   }, [])
 
   // Handle navbar link click with smooth scroll
-  const handleNavClick = (section) => {
+  const handleNavClick = (section: string) => {
     scroller.scrollTo(section, {
       duration: 800,
       delay: 0,
@@ -316,128 +351,93 @@ const App = () => {
                 </svg>
               </button>
 
-              <ScrollLink
-                to="home"
-                smooth={true}
-                duration={800}
-                offset={-80}
-                className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 ${
-                  activeSection === "home" ? "text-indigo-400" : ""
-                }`}
-                onClick={() => handleNavClick("home")}
-              >
-                Home
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400 transform transition-transform duration-300 ${
-                    activeSection === "home" ? "scale-x-100" : "scale-x-0"
-                  } group-hover:scale-x-100 md:block hidden`}
-                ></span>
-              </ScrollLink>
-              <ScrollLink
-                to="about"
-                smooth={true}
-                duration={800}
-                offset={-80}
-                className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 ${
-                  activeSection === "about" ? "text-indigo-400" : ""
-                }`}
-                onClick={() => handleNavClick("about")}
-              >
-                About
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400 transform transition-transform duration-300 ${
-                    activeSection === "about" ? "scale-x-100" : "scale-x-0"
-                  } group-hover:scale-x-100 md:block hidden`}
-                ></span>
-              </ScrollLink>
-              <ScrollLink
-                to="skills"
-                smooth={true}
-                duration={800}
-                offset={-80}
-                className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 ${
-                  activeSection === "skills" ? "text-indigo-400" : ""
-                }`}
-                onClick={() => handleNavClick("skills")}
-              >
-                Skills
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400 transform transition-transform duration-300 ${
-                    activeSection === "skills" ? "scale-x-100" : "scale-x-0"
-                  } group-hover:scale-x-100 md:block hidden`}
-                ></span>
-              </ScrollLink>
-              <ScrollLink
-                to="projects"
-                smooth={true}
-                duration={800}
-                offset={-80}
-                className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 ${
-                  activeSection === "projects" ? "text-indigo-400" : ""
-                }`}
-                onClick={() => handleNavClick("projects")}
-              >
-                Projects
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400 transform transition-transform duration-300 ${
-                    activeSection === "projects" ? "scale-x-100" : "scale-x-0"
-                  } group-hover:scale-x-100 md:block hidden`}
-                ></span>
-              </ScrollLink>
-              <ScrollLink
-                to="contact"
-                smooth={true}
-                duration={800}
-                offset={-80}
-                className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 ${
-                  activeSection === "contact" ? "text-indigo-400" : ""
-                }`}
-                onClick={() => handleNavClick("contact")}
-              >
-                Contact
-                <span
-                  className={`absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400 transform transition-transform duration-300 ${
-                    activeSection === "contact" ? "scale-x-100" : "scale-x-0"
-                  } group-hover:scale-x-100 md:block hidden`}
-                ></span>
-              </ScrollLink>
+              {["home", "about", "skills", "projects", "contact"].map((section) => (
+                <button
+                  key={section}
+                  onClick={() => handleNavClick(section)}
+                  className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 capitalize ${
+                    activeSection === section ? "text-indigo-400" : ""
+                  }`}
+                >
+                  {section}
+                  <span
+                    className={`absolute bottom-0 left-0 w-full h-0.5 bg-indigo-400 transform transition-transform duration-300 ${
+                      activeSection === section ? "scale-x-100" : "scale-x-0"
+                    } group-hover:scale-x-100 md:block hidden`}
+                  ></span>
+                </button>
+              ))}
             </div>
           </nav>
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section - Updated with Social Icons */}
       <Element name="home">
-        <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 overflow-hidden">
+        <section
+          id="home"
+          className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-950 via-gray-900 to-indigo-950 overflow-hidden"
+        >
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 to-transparent"></div>
           <div className="relative z-10 text-center px-4">
             <h1 className="text-4xl md:text-5xl xl:text-7xl font-extrabold text-white mb-4 animate-fade-in">
               Mujahidul Islam
             </h1>
-            <p className=" text-wrap text-lg md:text-2xl text-gray-300 px-2 text-justify mb-8 md:animate-typewriter">
+            <p className=" text-wrap text-lg md:text-2xl text-gray-300 px-2 text-center mb-8 md:animate-typewriter">
               {tagline}
               <span className="animate-blink">|</span>
             </p>
-            <div className="flex justify-center gap-4">
-              <ScrollLink
-                to="contact"
-                smooth={true}
-                duration={800}
-                offset={-80}
+
+            {/* Social Media Icons */}
+          
+            <div className="flex justify-center gap-4 flex-wrap mb-8">
+              <button
+                onClick={() => handleNavClick("contact")}
                 className="px-6 py-3 cursor-pointer bg-indigo-500 text-white font-semibold rounded-full hover:bg-indigo-600 hover:scale-105 transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: "1000ms" }}
+                style={{ animationDelay: "1100ms" }}
               >
                 Get in Touch
-              </ScrollLink>
-              <Link
-                to="https://drive.google.com/file/d/1xHs-zE7OTViskN2llHYKneBcxyp8fblb/view?usp=sharing"
-                download
+              </button>
+              <a
+                href="https://drive.google.com/file/d/1xHs-zE7OTViskN2llHYKneBcxyp8fblb/view?usp=sharing"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="px-6 py-3 cursor-pointer bg-gray-800 text-white font-semibold rounded-full hover:bg-gray-700 hover:scale-105 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: "1200ms" }}
               >
                 Download Resume
-              </Link>
+              </a>
+            </div>
+
+
+             <div className="flex justify-center gap-6 ">
+              <a
+                href="https://www.linkedin.com/in/mujahidul-islam-07b5a42a0/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-blue-600 hover:bg-blue-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
+                style={{ animationDelay: "800ms" }}
+              >
+                <Linkedin className="w-6 h-6 text-white" />
+              </a>
+              <a
+                href="https://github.com/Mujahid2000"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-gray-800 hover:bg-gray-700 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
+                style={{ animationDelay: "900ms" }}
+              >
+                <Github className="w-6 h-6 text-white" />
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
+                style={{ animationDelay: "1000ms" }}
+              >
+                <Facebook className="w-6 h-6 text-white" />
+              </a>
             </div>
           </div>
           <div className="absolute inset-0 z-0 opacity-30">
@@ -504,7 +504,7 @@ const App = () => {
                         <Code className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <p className="text-2xl font-bold text-white">5+</p>
+                        <p className="text-2xl font-bold text-white">6+</p>
                         <p className="text-sm text-gray-400">Projects</p>
                       </div>
                     </div>
@@ -519,7 +519,7 @@ const App = () => {
                         <Award className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <p className="text-2xl font-bold text-white">15+</p>
+                        <p className="text-2xl font-bold text-white">20+</p>
                         <p className="text-sm text-gray-400">Technologies</p>
                       </div>
                     </div>
@@ -588,14 +588,14 @@ const App = () => {
                       </div>
                       <h4 className="font-semibold text-white">GitHub</h4>
                     </div>
-                    <Link
-                      to="https://github.com/Mujahid2000"
+                    <a
+                      href="https://github.com/Mujahid2000"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-indigo-400 hover:text-indigo-300 transition-colors text-sm"
                     >
                       github.com/Mujahid2000
-                    </Link>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -604,7 +604,7 @@ const App = () => {
         </section>
       </Element>
 
-      {/* Skills Section - Redesigned */}
+      {/* Skills Section - Updated Categories and Removed Percentage Bars */}
       <Element name="skills">
         <section
           id="skills"
@@ -670,25 +670,9 @@ const App = () => {
                         </div>
 
                         {/* Skill Name */}
-                        <h4 className="text-sm font-semibold text-center text-white mb-3 group-hover:text-indigo-300 transition-colors duration-300">
+                        <h4 className="text-sm font-semibold text-center text-white group-hover:text-indigo-300 transition-colors duration-300">
                           {skill.name}
                         </h4>
-
-                        {/* Skill Level Bar */}
-                        <div className="relative">
-                          <div className="w-full h-2 bg-gray-700 rounded-full overflow-hidden">
-                            <div
-                              className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-1000 ease-out`}
-                              style={{
-                                width: `${skill.level}%`,
-                                animationDelay: `${(categoryIndex * 200) + (skillIndex * 100) + 500}ms`,
-                              }}
-                            ></div>
-                          </div>
-                          <span className="absolute -top-6 right-0 text-xs text-gray-400 font-medium">
-                            {skill.level}%
-                          </span>
-                        </div>
 
                         {/* Hover Glow Effect */}
                         <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -710,7 +694,7 @@ const App = () => {
         </section>
       </Element>
 
-      {/* Projects Section */}
+      {/* Projects Section - Updated with Client and Server Code Buttons */}
       <Element name="projects">
         <section id="projects" className="py-20 bg-gray-950">
           <div className="max-w-7xl mx-auto px-4">
@@ -737,7 +721,7 @@ const App = () => {
                       {project?.title}
                     </h3>
                     <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">{project?.description}</p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2 mb-6">
                       {project?.techStack?.map((tech, techIndex) => (
                         <span
                           key={techIndex}
@@ -747,14 +731,37 @@ const App = () => {
                         </span>
                       ))}
                     </div>
-                    <Link
-                      to={project?.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block px-5 py-2 bg-indigo-500 text-white font-semibold rounded-full hover:bg-indigo-600 hover:scale-105 transition-all duration-300 relative z-10"
-                    >
-                      Live Link
-                    </Link>
+
+                    {/* Project Buttons */}
+                    <div className="flex flex-wrap gap-3">
+                      <a
+                        href={project?.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600 hover:scale-105 transition-all duration-300 text-sm"
+                      >
+                        <Globe className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                      <a
+                        href={project?.clientCode}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 text-white font-semibold rounded-lg hover:bg-gray-600 hover:scale-105 transition-all duration-300 text-sm"
+                      >
+                        <FileCode className="w-4 h-4" />
+                        Client Code
+                      </a>
+                      <a
+                        href={project?.serverCode}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700 hover:scale-105 transition-all duration-300 text-sm"
+                      >
+                        <Server className="w-4 h-4" />
+                        Server Code
+                      </a>
+                    </div>
                   </div>
                   <div className="absolute inset-0 border-2 border-indigo-500/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                   <div className="absolute inset-0 shadow-[0_0_30px_rgba(59,130,246,0)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-shadow duration-500 rounded-xl pointer-events-none"></div>
@@ -894,7 +901,7 @@ const App = () => {
       </Element>
 
       {/* Custom CSS for Animations */}
-      <style>{`
+      <style jsx>{`
         @keyframes fade-in {
           0% {
             opacity: 0;
@@ -1055,4 +1062,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Portfolio
