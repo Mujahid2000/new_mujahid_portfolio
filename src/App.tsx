@@ -156,6 +156,38 @@ const skillCategories = [
   },
 ]
 
+// Education Data
+const education = [
+  {
+    degree: "Bachelor of Arts (B.A)",
+    institution: "National University of Bangladesh",
+    location: "Gazipur, Bangladesh",
+    duration: "2020 - 2022",
+    grade: "CGPA: 2.75/4.00",
+    description:
+      "Focused on software engineering, data structures, algorithms, and web development. Completed various projects in full-stack development.",
+    
+  },
+  {
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "Govt. B.M. College, Barishal",
+    location: "Barishal, Bangladesh",
+    duration: "2016 - 2019",
+    grade: "GPA: 2.27/5.00",
+    description: "Science background with focus on Mathematics, Physics, and Chemistry.",
+    
+  },
+  {
+    degree: "Secondary School Certificate (SSC)",
+    institution: "Jhalokathi Govt. High School",
+    location: "Jhalokathi, Bangladesh",
+    duration: "2014 - 2016",
+    grade: "GPA: 4.50/5.00",
+    description: "General education with excellent performance in science and mathematics.",
+    
+  },
+]
+
 // Updated Projects Data with Client and Server Code Links
 const projects = [
   {
@@ -351,7 +383,7 @@ const Portfolio = () => {
                 </svg>
               </button>
 
-              {["home", "about", "skills", "projects", "contact"].map((section) => (
+              {["home", "about", "education", "skills", "projects", "contact"].map((section) => (
                 <button
                   key={section}
                   onClick={() => handleNavClick(section)}
@@ -604,6 +636,115 @@ const Portfolio = () => {
         </section>
       </Element>
 
+ {/* Education Section - New Interactive Design */}
+      <Element name="education">
+        <section
+          id="education"
+          className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 overflow-hidden"
+        >
+          {/* Animated Background */}
+          <div className="absolute inset-0">
+            <div className="absolute top-10 left-10 w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div
+              className="absolute bottom-10 right-10 w-80 h-80 bg-gradient-to-r from-indigo-500/10 to-pink-500/10 rounded-full blur-3xl animate-pulse-slow"
+              style={{ animationDelay: "2s" }}
+            ></div>
+            <div
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-gradient-to-r from-green-500/5 to-blue-500/5 rounded-full blur-3xl animate-pulse-slow"
+              style={{ animationDelay: "4s" }}
+            ></div>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4">
+            {/* Section Header */}
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full border border-blue-500/20 mb-8 backdrop-blur-md">
+                <Award className="w-6 h-6 text-blue-400" />
+                <span className="text-blue-300 font-semibold text-lg">Academic Excellence</span>
+              </div>
+              <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 heading-primary">
+                My{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                  Journey
+                </span>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto body-text leading-relaxed">
+                From foundational learning to specialized expertise, here's my educational path that shaped my technical
+                skills
+              </p>
+            </div>
+
+            {/* Interactive Education Cards */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+              {education.map((edu, index) => (
+                <div
+                  key={index}
+                  className="group cursor-pointer relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/30 transition-all duration-700 hover:transform hover:scale-105 hover:-translate-y-4 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 300}ms` }}
+                >
+                  
+
+                  {/* Institution Icon */}
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <Award className="w-8 h-8 text-blue-400" />
+                  </div>
+
+                  {/* Duration Badge */}
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full border border-blue-500/30 mb-4">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
+                    <span className="text-blue-300 font-medium text-sm">{edu.duration}</span>
+                  </div>
+
+                  {/* Degree */}
+                  <h3 className="text-xl font-bold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300 heading-secondary leading-tight">
+                    {edu.degree}
+                  </h3>
+
+                  {/* Institution */}
+                  <div className="flex items-start gap-2 mb-3">
+                    <MapPin className="w-4 h-4 text-purple-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="text-purple-400 font-semibold text-sm heading-secondary">{edu.institution}</p>
+                      <p className="text-gray-400 text-xs body-text">{edu.location}</p>
+                    </div>
+                  </div>
+
+                  {/* Grade */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full border border-green-500/30 mb-4">
+                    <Zap className="w-3 h-3 text-green-400" />
+                    <span className="text-green-300 font-medium text-xs">{edu.grade}</span>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6 body-text">{edu.description}</p>
+
+                
+                
+                </div>
+              ))}
+            </div>
+            {/* Floating Elements */}
+            <div
+              className="absolute top-1/4 left-8 w-4 h-4 bg-blue-400 rounded-full animate-bounce opacity-60"
+              style={{ animationDelay: "0s" }}
+            ></div>
+            <div
+              className="absolute top-1/3 right-12 w-3 h-3 bg-purple-400 rounded-full animate-bounce opacity-60"
+              style={{ animationDelay: "1s" }}
+            ></div>
+            <div
+              className="absolute bottom-1/4 left-16 w-2 h-2 bg-pink-400 rounded-full animate-bounce opacity-60"
+              style={{ animationDelay: "2s" }}
+            ></div>
+            <div
+              className="absolute bottom-1/3 right-8 w-5 h-5 bg-green-400 rounded-full animate-bounce opacity-60"
+              style={{ animationDelay: "3s" }}
+            ></div>
+          </div>
+        </section>
+      </Element>
+
+
       {/* Skills Section - Updated Categories and Removed Percentage Bars */}
       <Element name="skills">
         <section
@@ -698,11 +839,18 @@ const Portfolio = () => {
       <Element name="projects">
         <section id="projects" className="py-20 bg-gray-950">
           <div className="max-w-7xl mx-auto px-4">
-            <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-16 text-white animate-fade-in">
-              My <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">
-                  Projects
-                </span>
-            </h2>
+            <div className="text-center mb-16">
+              <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-indigo-500/10 to-purple-500/10 rounded-full border border-indigo-500/20 mb-8 backdrop-blur-md">
+                <Code className="w-6 h-6 text-indigo-400" />
+                <span className="text-indigo-300 font-semibold text-lg">Featured Work</span>
+              </div>
+              <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-white animate-fade-in heading-primary">
+                My Projects
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto body-text leading-relaxed">
+                A showcase of my development skills through real-world applications and innovative solutions
+              </p>
+            </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projects.map((project, index) => (
                 <div
