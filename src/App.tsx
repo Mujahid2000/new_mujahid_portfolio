@@ -845,7 +845,9 @@ const Portfolio = () => {
                 <span className="text-indigo-300 font-semibold text-lg">Featured Work</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-extrabold text-center mb-4 text-white animate-fade-in heading-primary">
-                My Projects
+                My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                  Projects
+                </span>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto body-text leading-relaxed">
                 A showcase of my development skills through real-world applications and innovative solutions
