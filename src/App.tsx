@@ -277,7 +277,7 @@ const Portfolio = () => {
   // Handle section visibility on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections: string[] = ["home", "about", "skills", "projects", "contact"]
+      const sections: string[] = ["home", "about", "education", "skills", "projects", "contact"]
       let currentSection = "home"
 
       sections.forEach((section: string) => {
@@ -334,7 +334,7 @@ const Portfolio = () => {
       <header className="py-5 bg-gray-900 shadow-lg fixed top-0 w-full z-50">
         <div className="max-w-7xl mx-auto px-4 flex justify-between items-center">
           {/* Logo */}
-          <h1 className="text-xl sm:text-2xl font-bold text-indigo-400">Mujahidul Islam</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-indigo-400 heading-primary">Mujahidul Islam</h1>
 
           {/* Hamburger Menu Icon (Visible on Mobile) */}
           <button
@@ -387,7 +387,7 @@ const Portfolio = () => {
                 <button
                   key={section}
                   onClick={() => handleNavClick(section)}
-                  className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 capitalize ${
+                  className={`relative mx-3 text-lg md:text-base text-gray-300 hover:text-indigo-400 transition-colors duration-300 cursor-pointer py-2 md:py-0 capitalize font-medium ${
                     activeSection === section ? "text-indigo-400" : ""
                   }`}
                 >
@@ -402,7 +402,7 @@ const Portfolio = () => {
             </div>
           </nav>
         </div>
-      </header>
+      </header>``
 
       {/* Hero Section - Updated with Social Icons */}
       <Element name="home">
