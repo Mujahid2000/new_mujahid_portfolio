@@ -238,8 +238,8 @@ const projects = [
     ],
     image: "https://i.ibb.co.com/JtCdBLj/Screenshot-2024-11-28-164337.png",
     liveLink: "https://bazar-bd.vercel.app/",
-    clientCode: "https://github.com/Mujahid2000/BazarBD-client",
-    serverCode: "https://github.com/Mujahid2000/BazarBD-server",
+    clientCode: "https://github.com/Mujahid2000/Bazar-BD",
+    serverCode: "https://github.com/Mujahid2000/Postgre-Server",
   },
   {
     title: "Restaurant",
@@ -247,8 +247,8 @@ const projects = [
     techStack: ["Vue.Js", "Tailwind CSS", "Node.js", "Express.js", "Firebase", "MongoDB", " Mongoose"],
     image: "https://i.ibb.co.com/CnQV9wS/Screenshot-2-10-2024-19657-restaurant-beta-lemon-vercel-app.jpg",
     liveLink: "https://restaurant-beta-lemon.vercel.app/",
-    clientCode: "https://github.com/Mujahid2000/Restaurant-client",
-    serverCode: "https://github.com/Mujahid2000/Restaurant-server",
+    clientCode: "https://github.com/Mujahid2000/Restaurant-",
+    serverCode: "https://github.com/Mujahid2000/Restaurant-Server",
   },
   {
     title: "Streme",
@@ -256,8 +256,8 @@ const projects = [
     techStack: ["Next.Js", "Tailwind CSS", "Node.js", "Express.js", "Firebase", "MongoDB", " Mongoose"],
     image: "https://i.ibb.co/xDbddgt/image-1.jpg",
     liveLink: "https://streme-eight.vercel.app/",
-    clientCode: "https://github.com/Mujahid2000/Streme-client",
-    serverCode: "https://github.com/Mujahid2000/Streme-server",
+    clientCode: "https://github.com/sajalbiswas1/video-stream-client-side",
+    serverCode: "https://github.com/sajalbiswas1/video-stream-server-side",
   },
   {
     title: "Home Decor",
@@ -265,8 +265,8 @@ const projects = [
     techStack: ["Next.Js", "Tailwind CSS", "Firebase", "MongoDB", " Mongoose"],
     image: "https://i.ibb.co/DpWjpMk/image-6.jpg",
     liveLink: "https://next-js-full-stack-nu.vercel.app/",
-    clientCode: "https://github.com/Mujahid2000/HomeDecor-client",
-    serverCode: "https://github.com/Mujahid2000/HomeDecor-server",
+    clientCode: "https://github.com/Mujahid2000/NextJs-Full-Stack",
+    serverCode: "https://github.com/Mujahid2000/NextJs-Full-Stack",
   },
 ]
 
