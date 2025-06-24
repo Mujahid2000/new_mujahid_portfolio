@@ -18,6 +18,7 @@ import {
   Facebook,
   Wrench,
   FileCode,
+  ExternalLink,
 } from "lucide-react"
 
 // Skills Data with New Categories
@@ -29,7 +30,7 @@ const skillCategories = [
     skills: [
       {
         name: "TypeScript",
-        imageUrl: "https://static-00.iconduck.com/assets.00/typescript-icon-icon-2048x2048-2rhh1z66.png",
+        imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750784363/typescript-logo-blue-square-modern-design-icon-1-removebg-preview_vfay6m.png",
       },
       {
         name: "JavaScript",
@@ -68,7 +69,7 @@ const skillCategories = [
       },
       {
         name: "Redux Toolkit",
-        imageUrl: "https://static-00.iconduck.com/assets.00/redux-icon-2048x1945-ahvhunxp.png",
+        imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750784479/images-removebg-preview_sfjuws.png",
       },
       {
         name: "Tailwind CSS",
@@ -77,11 +78,7 @@ const skillCategories = [
       {
         name: "Tanstack Query",
         imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750187396/react-query-logo-png_seeklogo-435661-removebg-preview_aszg3v.png",
-      },
-      {
-        name: "Socket.IO",
-        imageUrl: "https://static-00.iconduck.com/assets.00/socket-io-icon-512x511-xjp7kzx6.png",
-      },
+      }
     ],
   },
   {
@@ -100,6 +97,11 @@ const skillCategories = [
       {
         name: "JWT",
         imageUrl: "https://img.icons8.com/?size=512&id=rHpveptSuwDz&format=png",
+      },
+      ,
+      {
+        name: "Socket.IO",
+        imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750784363/imgbin-socket-io-node-js-express-js-npm-network-socket-github-jCLAHi6fr1T6e3ZLnTxhxqFsY-removebg-preview_wofppa.png",
       },
       {
         name: "MongoDB",
@@ -146,10 +148,10 @@ const skillCategories = [
       },
       {
         name: "VS code",
-        imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/512px-Visual_Studio_Code_1.35_icon.svg.png?20210804221519",
+        imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750784556/Visual_Studio_Code_1.35_icon.svg_nrwawe.png",
       },
       {
-        name: "VS code",
+        name: "Figma",
         imageUrl: "https://res.cloudinary.com/diez3alve/image/upload/v1750187853/png-transparent-figma-app-logo-tech-companies-thumbnail-removebg-preview_hrhrvy.png",
       },
     ],
@@ -270,6 +272,30 @@ const projects = [
   },
 ]
 
+
+// Certificates Data
+const certificates = [
+  {
+    title: "MongoDB Aggregation Framework",
+    issuer: "MongoDB University",
+    date: "2024",
+    description:
+      "Comprehensive course covering MongoDB aggregation framework, pipeline operations, advanced query techniques, and data processing strategies for complex database operations.",
+    skills: ["MongoDB", "Aggregation Pipeline", "Data Processing", "NoSQL"],
+    certificateLink: "https://drive.google.com/file/d/17xQbFLUa7Q6vYoLzkUwgFo3_a9BgEzP3/view?usp=sharing", // Replace with your actual certificate link
+    logo: "https://res.cloudinary.com/diez3alve/image/upload/v1750784809/505875855_4271264203199179_7200409013333893024_n_bebgle.jpg", // MongoDB logo
+  },
+  {
+    title: "Complete Web Development Course",
+    issuer: "Programming Hero",
+    date: "2024",
+    description: "Description of your training certificate. Replace this with details about your actual certificate.",
+    skills: ["JavaScript", "HTML", "CSS", "React"],
+    certificateLink: "https://drive.google.com/file/d/19FJ74_c8PHVwIzTZZ45-hWisbZu2puLo/view?usp=sharing", // Replace with your actual certificate link
+    logo: "https://res.cloudinary.com/diez3alve/image/upload/v1750785138/images_bp484r.jpg", // Replace with actual logo
+  },
+]
+
 const Portfolio = () => {
   const [activeSection, setActiveSection] = useState<string>("home")
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
@@ -277,7 +303,7 @@ const Portfolio = () => {
   // Handle section visibility on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const sections: string[] = ["home", "about", "education", "skills", "projects", "contact"]
+      const sections: string[] = ["home", "about", "education", "certificates", "skills", "projects", "contact"]
       let currentSection = "home"
 
       sections.forEach((section: string) => {
@@ -383,7 +409,7 @@ const Portfolio = () => {
                 </svg>
               </button>
 
-              {["home", "about", "education", "skills", "projects", "contact"].map((section) => (
+              {["home", "about", "education", "certificates", "skills", "projects", "contact"].map((section) => (
                 <button
                   key={section}
                   onClick={() => handleNavClick(section)}
@@ -744,6 +770,124 @@ const Portfolio = () => {
         </section>
       </Element>
 
+ {/* Certificates Section - New */}
+      <Element name="certificates">
+        <section
+          id="certificates"
+          className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 overflow-hidden"
+        >
+          {/* Animated Background */}
+          <div className="absolute inset-0">
+            <div className="absolute top-10 right-10 w-96 h-96 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-full blur-3xl animate-pulse-slow"></div>
+            <div
+              className="absolute bottom-10 left-10 w-80 h-80 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 rounded-full blur-3xl animate-pulse-slow"
+              style={{ animationDelay: "2s" }}
+            ></div>
+          </div>
+
+          <div className="relative z-10 max-w-7xl mx-auto px-4">
+            {/* Section Header */}
+            <div className="text-center mb-20">
+              <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500/10 to-emerald-500/10 rounded-full border border-green-500/20 mb-8 backdrop-blur-md">
+                <Award className="w-6 h-6 text-green-400" />
+                <span className="text-green-300 font-semibold text-lg">Professional Development</span>
+              </div>
+              <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 heading-primary">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-emerald-400 to-teal-400">
+                  Certificates
+                </span>{" "}
+                & Training
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto body-text leading-relaxed">
+                Continuous learning through professional certifications and specialized training programs
+              </p>
+            </div>
+
+            {/* Certificates Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+              {certificates.map((cert, index) => (
+                <div
+                  key={index}
+                  className="group relative bg-gradient-to-br from-gray-800/40 to-gray-900/60 backdrop-blur-xl rounded-3xl p-8 border border-gray-700/30 transition-all duration-700 hover:transform hover:scale-105 hover:-translate-y-4 animate-fade-in-up"
+                  style={{ animationDelay: `${index * 300}ms` }}
+                >
+                  {/* Certificate Header */}
+                  <div className="flex items-start gap-4 mb-6">
+                    {/* Logo */}
+                    <div className="w-16 h-16 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 flex-shrink-0">
+                      <img
+                        src={cert.logo || "/placeholder.svg"}
+                        alt={cert.issuer}
+                        className="w-10 h-10 object-contain"
+                        
+                      />
+                      <Award className="w-8 h-8 text-green-400 hidden" />
+                    </div>
+
+                    {/* Certificate Info */}
+                    <div className="flex-1">
+                      <div className="inline-flex items-center gap-2 px-3 py-1 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full border border-green-500/30 mb-3">
+                        <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                        <span className="text-green-300 font-medium text-sm">{cert.date}</span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-white mb-2 group-hover:text-green-300 transition-colors duration-300 heading-secondary leading-tight">
+                        {cert.title}
+                      </h3>
+
+                      <p className="text-emerald-400 font-semibold text-sm heading-secondary">{cert.issuer}</p>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-gray-300 text-sm leading-relaxed mb-6 body-text">{cert.description}</p>
+
+                  {/* Skills Tags */}
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {cert.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="px-3 py-1 bg-green-500/20 text-green-300 text-xs font-medium rounded-full border border-green-500/50 transform group-hover:scale-105 transition-transform duration-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Certificate Link Button */}
+                  <div className="flex gap-3">
+                    <a
+                      href={cert.certificateLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-green-500 to-emerald-500 text-white font-semibold rounded-lg hover:from-green-600 hover:to-emerald-600 hover:scale-105 transition-all duration-300 text-sm"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      View Certificate
+                    </a>
+                  </div>
+
+                  {/* Hover Glow Effect */}
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-green-500/5 to-emerald-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
+                  {/* Animated Border */}
+                  
+                </div>
+              ))}
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center">
+              <div className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-green-500/20 to-emerald-500/20 rounded-full border border-green-500/30">
+                <span className="text-gray-300 body-text">
+                  Continuously expanding my knowledge through explore new resources
+                </span>
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </Element>
 
       {/* Skills Section - Updated Categories and Removed Percentage Bars */}
       <Element name="skills">
