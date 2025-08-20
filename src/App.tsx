@@ -262,6 +262,15 @@ const projects = [
     serverCode: "https://github.com/sajalbiswas1/video-stream-server-side",
   },
   {
+    title: "Pill Splitter",
+    description: "It's s div splitting website",
+    techStack: ["Next.Js", "Tailwind CSS"],
+    image: "https://res.cloudinary.com/dkffqpque/image/upload/v1755686921/Screenshot_2025-08-20_164723_c6zhpf.png",
+    liveLink: "https://split-tau-seven.vercel.app/",
+    clientCode: "https://github.com/Mujahid2000/pil-split",
+    serverCode: "",
+  },
+  {
     title: "Home Decor",
     description: "E-commerce platform for selling  home decor items.",
     techStack: ["Next.Js", "Tailwind CSS", "Firebase", "MongoDB", " Mongoose"],
