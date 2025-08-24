@@ -287,12 +287,22 @@ const certificates = [
   {
     title: "MongoDB Aggregation Framework",
     issuer: "MongoDB University",
-    date: "2024",
+    date: "2025",
     description:
       "Comprehensive course covering MongoDB aggregation framework, pipeline operations, advanced query techniques, and data processing strategies for complex database operations.",
     skills: ["MongoDB", "Aggregation Pipeline", "Data Processing", "NoSQL"],
     certificateLink: "https://drive.google.com/file/d/17xQbFLUa7Q6vYoLzkUwgFo3_a9BgEzP3/view?usp=sharing", // Replace with your actual certificate link
     logo: "https://res.cloudinary.com/diez3alve/image/upload/v1750784809/505875855_4271264203199179_7200409013333893024_n_bebgle.jpg", // MongoDB logo
+  },
+  {
+    title: "Javascript (Basic)",
+    issuer: "HackerRank",
+    date: "2025",
+    description:
+      "Comprehensive course covering MongoDB aggregation framework, pipeline operations, advanced query techniques, and data processing strategies for complex database operations.",
+    skills: ["JavaScript"],
+    certificateLink: "https://www.hackerrank.com/certificates/db286d2e4515", // Replace with your actual certificate link
+    logo: "https://res.cloudinary.com/dfoqbqvkl/image/upload/v1756055332/HackerRank_Icon-1000px_bhmhso.png", // Hacker Rank logo
   },
   {
     title: "Complete Web Development Course",
