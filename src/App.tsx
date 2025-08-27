@@ -295,11 +295,11 @@ const certificates = [
     logo: "https://res.cloudinary.com/diez3alve/image/upload/v1750784809/505875855_4271264203199179_7200409013333893024_n_bebgle.jpg", // MongoDB logo
   },
   {
-    title: "Javascript (Basic)",
+    title: " JavaScript (Basic) Certification – HackerRank",
     issuer: "HackerRank",
     date: "2025",
     description:
-      "Comprehensive course covering MongoDB aggregation framework, pipeline operations, advanced query techniques, and data processing strategies for complex database operations.",
+      "Successfully passed HackerRank’s JavaScript (Basic) skill assessment, demonstrating core proficiency in syntax, control structures, functions, OOP and problem-solving. Verified achievement dated 22 August 2025, endorsed by HackerRank’s CTO.",
     skills: ["JavaScript"],
     certificateLink: "https://www.hackerrank.com/certificates/db286d2e4515", // Replace with your actual certificate link
     logo: "https://res.cloudinary.com/dfoqbqvkl/image/upload/v1756055332/HackerRank_Icon-1000px_bhmhso.png", // Hacker Rank logo
@@ -308,7 +308,7 @@ const certificates = [
     title: "Complete Web Development Course",
     issuer: "Programming Hero",
     date: "2024",
-    description: "Description of your training certificate. Replace this with details about your actual certificate.",
+    description: "Complete Web Development Course with Jhankar Mahbub on Programming Hero. Covers HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, and more.",
     skills: ["JavaScript", "HTML", "CSS", "React"],
     certificateLink: "https://drive.google.com/file/d/19FJ74_c8PHVwIzTZZ45-hWisbZu2puLo/view?usp=sharing", // Replace with your actual certificate link
     logo: "https://res.cloudinary.com/diez3alve/image/upload/v1750785138/images_bp484r.jpg", // Replace with actual logo
