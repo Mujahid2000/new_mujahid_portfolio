@@ -20,6 +20,7 @@ import {
   FileCode,
   ExternalLink,
 } from "lucide-react"
+import { FaHackerrank } from "react-icons/fa";
 
 // Skills Data with New Categories
 const skillCategories = [
@@ -305,6 +306,16 @@ const certificates = [
     logo: "https://res.cloudinary.com/dfoqbqvkl/image/upload/v1756055332/HackerRank_Icon-1000px_bhmhso.png", // Hacker Rank logo
   },
   {
+    title: " React (Basic) – HackerRank",
+    issuer: "HackerRank",
+    date: "2025",
+    description:
+      "React (Basic) It covers topics like Basic Routing, Rendering Elements,State Management (Internal Component State), Handling Events, ES6 and JavaScript and Form Validation. Verified achievement dated 30 August 2025, endorsed by HackerRank’s CTO.",
+    skills: ["JavaScript"],
+    certificateLink: "https://www.hackerrank.com/certificates/cd21bb88f5de", // Replace with your actual certificate link
+    logo: "https://res.cloudinary.com/dfoqbqvkl/image/upload/v1756055332/HackerRank_Icon-1000px_bhmhso.png", // Hacker Rank logo
+  },
+  {
     title: "Complete Web Development Course",
     issuer: "Programming Hero",
     date: "2024",
@@ -507,13 +518,13 @@ const Portfolio = () => {
                 <Github className="w-6 h-6 text-white" />
               </a>
               <a
-                href="https://www.facebook.com/mujahidul.islam.1656854"
+                href="https://www.hackerrank.com/profile/developermujahi2"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-12 h-12 bg-blue-500 hover:bg-blue-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
+                className="w-12 h-12 bg-green-700 hover:bg-green-600 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 animate-fade-in"
                 style={{ animationDelay: "1000ms" }}
               >
-                <Facebook className="w-6 h-6 text-white" />
+                <FaHackerrank  className="w-6 h-6 text-white" />
               </a>
             </div>
           </div>
