@@ -301,7 +301,7 @@ const certificates = [
     date: "2025",
     description:
       "Successfully passed HackerRank’s JavaScript (Basic) skill assessment, demonstrating core proficiency in syntax, control structures, functions, Object Oriented Programming (OOP) and problem-solving. Verified achievement dated 22 August 2025, endorsed by HackerRank’s CTO.",
-    skills: ["JavaScript, OOP, ES6"],
+    skills: ["JavaScript", "OOP", "ES6"],
     certificateLink: "https://www.hackerrank.com/certificates/db286d2e4515", // Replace with your actual certificate link
     logo: "https://res.cloudinary.com/dfoqbqvkl/image/upload/v1756055332/HackerRank_Icon-1000px_bhmhso.png", // Hacker Rank logo
   },
