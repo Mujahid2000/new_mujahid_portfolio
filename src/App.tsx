@@ -192,14 +192,31 @@ const education = [
 ]
 
 // Updated Projects Data with Client and Server Code Links
-const projects = [
+const personalProjects = [
   {
     title: "My-Jobs",
     description: "Fitness centers are the best way to stay fit and keep good health .",
     techStack: [
-      "Next.js", "TypeScript", "Node.js", "Express.js", "MongoDB", "PostgreSQL", "Firebase", "PayPal API", "Socket.io", "Redux", "Cloudinary", "Nodemailer", "TailwindCSS", "Shadcn/UI", "React Hook Form", "Lenis", "React-Quill-New" 
+      "Next.js",
+      "TypeScript",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "PostgreSQL",
+      "Firebase",
+      "PayPal API",
+      "Socket.io",
+      "Redux",
+      "Cloudinary",
+      "Nodemailer",
+      "TailwindCSS",
+      "Shadcn/UI",
+      "React Hook Form",
+      "Lenis",
+      "React-Quill-New",
     ],
-    image: "https://res.cloudinary.com/diez3alve/image/upload/v1750188666/screencapture-my-job-brown-vercel-app-2025-06-18-01_29_34_wc1nld.png",
+    image:
+      "https://res.cloudinary.com/diez3alve/image/upload/v1750188666/screencapture-my-job-brown-vercel-app-2025-06-18-01_29_34_wc1nld.png",
     liveLink: "https://my-job-brown.vercel.app/",
     clientCode: "https://github.com/Mujahid2000/myJob",
     serverCode: "https://github.com/Mujahid2000/Job-server",
@@ -219,7 +236,7 @@ const projects = [
       "Stripe",
       "JWT",
     ],
-    image: "https://i.ibb.co/x1BJf5x/picture.png",
+    image: "https://i.ibb.co.com/x1BJf5x/picture.png",
     liveLink: "https://gym-center-eta.vercel.app/",
     clientCode: "https://github.com/Mujahid2000/gym-center",
     serverCode: "https://github.com/Mujahid2000/gym-server",
@@ -257,7 +274,7 @@ const projects = [
     title: "Streme",
     description: "Video streaming platform, Play video for your entertainment.",
     techStack: ["Next.Js", "Tailwind CSS", "Node.js", "Express.js", "Firebase", "MongoDB", " Mongoose"],
-    image: "https://i.ibb.co/xDbddgt/image-1.jpg",
+    image: "https://i.ibb.co.com/xDbddgt/image-1.jpg",
     liveLink: "https://streme-eight.vercel.app/",
     clientCode: "https://github.com/sajalbiswas1/video-stream-client-side",
     serverCode: "https://github.com/sajalbiswas1/video-stream-server-side",
@@ -271,17 +288,29 @@ const projects = [
     clientCode: "https://github.com/Mujahid2000/pil-split",
     serverCode: "",
   },
-  {
-    title: "Home Decor",
-    description: "E-commerce platform for selling  home decor items.",
-    techStack: ["Next.Js", "Tailwind CSS", "Firebase", "MongoDB", " Mongoose"],
-    image: "https://i.ibb.co/DpWjpMk/image-6.jpg",
-    liveLink: "https://next-js-full-stack-nu.vercel.app/",
-    clientCode: "https://github.com/Mujahid2000/NextJs-Full-Stack",
-    serverCode: "https://github.com/Mujahid2000/NextJs-Full-Stack",
-  },
 ]
 
+const clientProjects = [
+  {
+    title: "PM Sourcing",
+    description: "A complete tailoring solution for your business",
+    techStack: [
+      "Next.js",
+      "TypeScript",
+      "MongoDB",
+      "GSAP",
+      "AOS",
+      "TailwindCSS",
+      "Shadcn/UI",
+      "Swiper.js",
+      "NextAuth.js",
+    ],
+    image: "https://res.cloudinary.com/dkffqpque/image/upload/v1758520159/Screenshot_2025-09-22_114823_p4b4ao.png",
+    liveLink: "https://pm-sourcing.vercel.app/",
+    clientCode: "https://github.com/client/ecommerce-dashboard",
+    serverCode: "https://github.com/client/ecommerce-api",
+  }
+]
 
 // Certificates Data
 const certificates = [
@@ -458,7 +487,7 @@ const Portfolio = () => {
             </div>
           </nav>
         </div>
-      </header>``
+      </header>
 
       {/* Hero Section - Updated with Social Icons */}
       <Element name="home">
@@ -1027,8 +1056,15 @@ const Portfolio = () => {
                 A showcase of my development skills through real-world applications and innovative solutions
               </p>
             </div>
+            <div className="mb-20">
+              <div className="flex items-center gap-3 mb-12">
+                <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
+                  <Code className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-white">Personal Projects</h3>
+              </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
+              {personalProjects.map((project, index) => (
                 <div
                   key={index}
                   className="relative bg-gray-900/80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group animate-fade-in-scale"
@@ -1093,6 +1129,75 @@ const Portfolio = () => {
                   <div className="absolute inset-0 shadow-[0_0_30px_rgba(59,130,246,0)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-shadow duration-500 rounded-xl pointer-events-none"></div>
                 </div>
               ))}
+            </div>
+
+            </div>
+            <div>
+              <div className="flex items-center gap-3 mb-12">
+                <div className="w-8 h-8 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                  <Wrench className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-3xl font-bold text-white">Client Projects</h3>
+              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {clientProjects.map((project, index) => (
+                <div
+                  key={index}
+                  className="relative bg-gray-900/80 backdrop-blur-md rounded-xl overflow-hidden shadow-lg transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group animate-fade-in-scale"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                >
+                  <div className="relative w-full h-48 overflow-hidden">
+                    <img
+                      src={project.image || "/placeholder.svg"}
+                      alt={project?.title}
+                      className="w-full h-full object-cover transform transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950/80 to-transparent opacity-70 group-hover:opacity-50 transition-opacity duration-500"></div>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl md:text-2xl font-semibold text-indigo-400 mb-2 group-hover:text-indigo-300 transition-colors duration-300">
+                      {project?.title}
+                    </h3>
+                    <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-4">{project?.description}</p>
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {project?.techStack?.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="px-3 py-1 bg-indigo-500/20 text-indigo-300 text-xs font-medium rounded-full border border-indigo-500/50 transform group-hover:scale-105 transition-transform duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Project Buttons */}
+                    <div className="flex flex-col lg:flex-row lg:flex-wrap gap-3">
+                      <a
+                        href={project?.liveLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600 hover:scale-105 transition-all duration-300 text-sm"
+                      >
+                        <Globe className="w-4 h-4" />
+                        Live Demo
+                      </a>
+                      <button
+                          disabled
+                          className="flex items-center gap-2 px-4 py-2 bg-gray-600 text-gray-400 rounded-lg cursor-not-allowed text-sm font-medium"
+                          title="Code is private for client projects"
+                        >
+                          <Github className="w-4 h-4" />
+                          Code (Private)
+                        </button>
+                      
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 border-2 border-indigo-500/30 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                  <div className="absolute inset-0 shadow-[0_0_30px_rgba(59,130,246,0)] group-hover:shadow-[0_0_30px_rgba(59,130,246,0.3)] transition-shadow duration-500 rounded-xl pointer-events-none"></div>
+                </div>
+              ))}
+            </div>
+
             </div>
           </div>
         </section>
