@@ -36,6 +36,10 @@ const skillCategories = [
       {
         name: "JavaScript",
         imageUrl: "https://i.ibb.co/XSjWDqn/javascript-logo-javascript-icon-transparent-free-png.webp",
+      },
+      {
+        name: "Python",
+        imageUrl: "https://res.cloudinary.com/dkffqpque/image/upload/v1759777555/images__2_-removebg-preview_kstifb.png",
       }
     ],
   },
