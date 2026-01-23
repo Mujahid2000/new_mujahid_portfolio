@@ -626,7 +626,7 @@ export default function Portfolio() {
                          {certificates.map((cert, i) => (
                            <div key={i} className="glass-card p-6 group flex gap-6 reveal">
                               <div className="shrink-0 w-16 h-16 bg-white/5 rounded-xl flex items-center justify-center p-2">
-                                 <img src={cert.logo} alt={cert.issuer} className="w-full h-full object-contain filter grayscale group-hover:grayscale-0 transition-all" />
+                                 <img src={cert.logo} alt={cert.issuer} className="w-full h-full object-contain filter   group-hover:  transition-all" />
                               </div>
                               <div className="flex-1">
                                  <div className="flex justify-between items-start mb-1">
@@ -668,7 +668,7 @@ export default function Portfolio() {
                      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-4">
                         {cat.skills.map((s, si) => (
                            <div key={si} className="glass-card p-4 flex flex-col items-center gap-3 group hover:-translate-y-1 transition-all reveal-scale">
-                              <img src={s?.imageUrl} alt={s?.name} className="w-10 h-10 object-contain grayscale group-hover:grayscale-0 transition-all duration-500" />
+                              <img src={s?.imageUrl} alt={s?.name} className="w-10 h-10 object-contain   group-hover:  transition-all duration-500" />
                               <span className="text-xs font-semibold text-gray-400 group-hover:text-white transition-colors">{s?.name}</span>
                            </div>
                         ))}
