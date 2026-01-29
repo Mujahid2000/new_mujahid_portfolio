@@ -510,8 +510,8 @@ export default function Portfolio() {
               <div className="relative group reveal-right flex justify-center lg:justify-end" style={{ transitionDelay: '0.3s' }}>
                 <div className="grid grid-cols-1 gap-4 w-full max-w-[320px]">
                   {[
-                    { label: "EXPERIENCE", val: "2+ Years", sub: "Software Development", icon: <Briefcase /> },
-                    { label: "PROJECTS", val: "40+", sub: "Delivered Worldwide", icon: <Globe /> },
+                    { label: "EXPERIENCE", val: "6+ Months", sub: "Software Development", icon: <Briefcase /> },
+                    { label: "PROJECTS", val: "10+", sub: "Delivered Worldwide", icon: <Globe /> },
                     { label: "TECH STACK", val: "Full-Stack", sub: "MERN & Beyond", icon: <Code /> },
                     { label: "LOCATION", val: "Dhaka", sub: "Bangladesh (GMT+6)", icon: <MapPin /> }
                   ].map((stat, i) => (
