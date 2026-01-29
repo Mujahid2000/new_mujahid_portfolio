@@ -275,7 +275,7 @@ export default function Portfolio() {
       if (i < fullTagline.length) {
         setTagline(fullTagline.slice(0, i + 1))
         i++
-        setTimeout(type, 30) // Snappier typewriter
+        setTimeout(type, 25)
       }
     }
     type()
@@ -290,8 +290,8 @@ export default function Portfolio() {
     const label = document.querySelector(".cursor-label")
     
     const onMouseMove = (e: MouseEvent) => {
-      gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.08, ease: "power2.out" })
-      gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.3, ease: "power2.out" }) // Smoother follower
+      gsap.to(cursor, { x: e.clientX, y: e.clientY, duration: 0.01, ease: "none" })
+      gsap.to(follower, { x: e.clientX, y: e.clientY, duration: 0.15, ease: "power1.out" })
     }
 
     const onMouseDown = () => {
@@ -320,16 +320,19 @@ export default function Portfolio() {
       if (el.classList.contains("reveal-scale")) scale = 0.95
 
       gsap.fromTo(el, 
-        { opacity: 0, x: x, y: y, scale: scale }, 
+        { opacity: 0, x: x, y: y, scale: scale, willChange: "transform, opacity" }, 
         {
           opacity: 1,
           x: 0, y: 0, scale: 1,
-          duration: 1.0, // More luxurious but snappier
-          ease: "expo.out",
+          duration: 0.8,
+          ease: "power3.out",
           scrollTrigger: {
             trigger: el,
             start: "top 90%",
             toggleActions: "play none none none"
+          },
+          onComplete: function() {
+            gsap.set(el, { willChange: "auto" })
           }
         }
       )
@@ -344,38 +347,41 @@ export default function Portfolio() {
         scrollTrigger: {
           trigger: "#projects-pin-container",
           start: "top top",
-          end: `+=${projects.length * 100}%`,
+          end: `+=${projects.length * 40}%`,
           pin: true,
-          scrub: 1,
-          anticipatePin: 1
+          scrub: 0.5,
+          anticipatePin: 1,
+          fastScrollEnd: true
         }
       })
 
       projectElements.forEach((el, i) => {
         // Initial state: hidden and down
-        gsap.set(el, { opacity: 0, y: 100, visibility: "hidden" })
+        gsap.set(el, { opacity: 0, y: 50, visibility: "hidden", willChange: "transform, opacity" })
 
         // 1. Enter from bottom
         tl.to(el, {
           opacity: 1,
           y: 0,
           visibility: "visible",
-          duration: 0.5,
-          ease: "power2.out"
+          duration: 0.3,
+          ease: "power1.inOut"
         })
         
         // 2. Hold (static scroll period)
-        tl.to({}, { duration: 1 }) 
+        tl.to({}, { duration: 0.6 }) 
 
         // 3. Exit (except for the last one)
         if (i < projectElements.length - 1) {
           tl.to(el, {
             opacity: 0,
-            y: -100,
-            duration: 0.5,
-            ease: "power2.in",
-            onComplete: () => { gsap.set(el, { visibility: "hidden" }) }
+            y: -50,
+            duration: 0.3,
+            ease: "power1.inOut",
+            onComplete: () => { gsap.set(el, { visibility: "hidden", willChange: "auto" }) }
           })
+        } else {
+          gsap.set(el, { willChange: "auto" })
         }
       })
     }
@@ -387,10 +393,10 @@ export default function Portfolio() {
         const rect = el.getBoundingClientRect()
         const x = e.clientX - rect.left - rect.width / 2
         const y = e.clientY - rect.top - rect.height / 2
-        gsap.to(el, { x: x * 0.35, y: y * 0.35, duration: 0.3, ease: "power2.out" })
+        gsap.to(el, { x: x * 0.3, y: y * 0.3, duration: 0.2, ease: "power1.out" })
       })
       el.addEventListener("mouseleave", () => {
-        gsap.to(el, { x: 0, y: 0, duration: 0.6, ease: "elastic.out(1, 0.4)" })
+        gsap.to(el, { x: 0, y: 0, duration: 0.5, ease: "elastic.out(1, 0.5)" })
       })
     })
 
