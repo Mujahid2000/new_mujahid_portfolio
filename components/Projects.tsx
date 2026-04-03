@@ -23,6 +23,7 @@ const projects = [
     live: 'https://rbac-system-nextjs.vercel.app/login',
     fe: 'https://github.com/Mujahid2000/rbac-system-nextjs',
     be: 'https://github.com/Mujahid2000/rbac-system-nestjs',
+    pass: "https://docs.google.com/document/d/1vDzV_ROGuxEan9H6T8w410IoN3eDfASUoUnIlCo1sIM/edit?usp=sharing"
   },
   {
     n: '03',
@@ -67,7 +68,7 @@ export default function Projects() {
         </div>
 
         {/* Projects */}
-        {projects.map(({ n, name, sub, badge, desc, tech, live, fe, be }, i) => (
+        {projects.map(({ n, name, sub, badge, desc, tech, live, fe, be, pass }, i) => (
           <div
             key={n}
             className={`sr sr-d${i + 1} hcard border-x-0 border-t-0 border-b border-border py-10 group cursor-default`}
@@ -111,6 +112,12 @@ export default function Projects() {
                   <a href={be} target="_blank" rel="noopener noreferrer"
                     className="font-mono text-xs text-dim border border-border px-3 py-2 hover:border-orange hover:text-orange transition-all text-center">
                     BE
+                  </a>
+                )}
+                {pass && (
+                  <a href={pass} target="_blank" rel="noopener noreferrer"
+                    className="font-mono text-xs text-dim border border-border px-3 py-2 hover:border-orange hover:text-orange transition-all text-center">
+                    PASS
                   </a>
                 )}
               </div>
