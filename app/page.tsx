@@ -562,32 +562,57 @@ export default function Portfolio() {
       
       {/* Experience Section */}
       <Element name="experience">
-        <section id="experience" className="relative py-24 bg-gray-950">
+        <section id="experience" className="relative py-24 bg-gray-950 overflow-hidden">
           <div className="relative z-10 max-w-7xl mx-auto px-4">
-            <div className="text-center mb-16 reveal">
+            <div className="text-center mb-20 reveal">
               <h2 className="text-indigo-400 font-semibold mb-2 tracking-wider uppercase text-sm">Professional Journey</h2>
               <h3 className="text-4xl md:text-5xl font-bold text-white">Experience</h3>
             </div>
-            <div className="max-w-4xl mx-auto">
-              <div className="relative space-y-12 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-800 before:to-transparent">
-                {experiences.map((exp, index) => (
-                  <div key={index} className={`relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group reveal ${index % 2 === 0 ? 'reveal-right' : 'reveal-left'}`}>
-                    <div className="flex items-center justify-center w-10 h-10 rounded-full border border-gray-800 bg-gray-950 text-indigo-400 shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 group-hover:border-indigo-500/50 transition-colors duration-300">
-                      <Briefcase size={20} />
-                    </div>
-                    <div className="w-[calc(100%-4rem)] md:w-[45%] glass-card p-6 shadow-xl group-hover:translate-y-[-4px] transition-transform duration-300">
-                      <time className="font-medium text-indigo-400 text-sm tracking-wide">{exp.duration}</time>
-                      <div className="text-white font-bold text-xl mb-1">{exp.role}</div>
-                      <div className="text-purple-400 font-semibold mb-4 flex items-center gap-2">
-                         <span>{exp.company}</span>
-                         <span className="w-1 h-1 bg-gray-700 rounded-full"></span>
-                         <span className="text-gray-400 text-sm font-normal">{exp.location}</span>
+            
+            <div className="grid lg:grid-cols-1 gap-6 max-w-5xl mx-auto">
+              {experiences.map((exp, index) => (
+                <div 
+                  key={index} 
+                  className="group reveal reveal-right relative bg-gray-950 border border-transparent bg-clip-padding p-8 overflow-hidden transition-all duration-500 hover:border-indigo-500/50 rounded-2xl"
+                  style={{
+                    backgroundImage: 'linear-gradient(gray-950, gray-950), linear-gradient(135deg, rgb(99, 102, 241) 0%, rgb(168, 85, 247) 100%)',
+                    backgroundOrigin: 'border-box',
+                    backgroundClip: 'content-box, border-box'
+                  }}
+                >
+                  {/* Gradient Border Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/30 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl pointer-events-none"></div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10 space-y-4">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="space-y-2 flex-1">
+                        <div className="flex items-center gap-3">
+                          <div className="p-3 bg-indigo-500/20 rounded-lg group-hover:bg-indigo-500/40 transition-colors">
+                            <Briefcase className="w-5 h-5 text-indigo-400" />
+                          </div>
+                          <div>
+                            <h4 className="text-xl md:text-2xl font-bold text-white group-hover:text-indigo-200 transition-colors">{exp.role}</h4>
+                            <p className="text-indigo-400 font-semibold">{exp.company}</p>
+                          </div>
+                        </div>
                       </div>
-                      <p className="text-gray-400 text-sm leading-relaxed">{exp.description}</p>
+                      <div className="text-right">
+                        <span className="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-full text-xs font-bold text-gray-300 group-hover:bg-indigo-500/20 group-hover:border-indigo-500/50 transition-all">
+                          {exp.duration}
+                        </span>
+                      </div>
                     </div>
+                    
+                    <div className="flex items-center gap-2 text-sm text-gray-400">
+                      <MapPin className="w-4 h-4 text-indigo-400" />
+                      <span>{exp.location}</span>
+                    </div>
+                    
+                    <p className="text-gray-300 leading-relaxed text-base">{exp.description}</p>
                   </div>
-                ))}
-              </div>
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -686,54 +711,103 @@ export default function Portfolio() {
         </section>
       </Element>
 
-      {/* Sticky Project Showcase Section */}
+      {/* Projects Section */}
       <Element name="projects">
-        <section id="projects" className="relative bg-gray-950">
-          <div id="projects-pin-container" className="h-[100vh] w-full relative overflow-hidden flex items-center justify-center">
-             {/* Section Header (Fixed in background or above) */}
-             <div className="absolute top-24 left-1/2 -translate-x-1/2 text-center z-10 w-full px-4 pointer-events-none mb-20">
-                <h2 className="text-indigo-400 font-bold mb-4 tracking-[0.2em] uppercase text-xs">Selected Works</h2>
-                <h3 className="text-4xl md:text-6xl font-black text-white leading-tight">Crafting <span className="text-white/20 text-3xl md:text-5xl">Digital Experiences</span></h3>
-             </div>
-
-             <div className="relative w-full max-w-7xl mx-auto h-full px-4 flex items-center justify-center pt-20">
-                {[...personalProjects, ...clientProjects].map((p, i) => (
-                   <div 
-                    key={i} 
-                    className="sticky-project-card absolute inset-0 flex flex-col lg:flex-row gap-12 items-center justify-center w-full px-4"
-                    style={{ visibility: "hidden" }}
-                   >
-                      <div className="w-full lg:w-3/5 relative">
-                         <div className="relative aspect-[16/9] overflow-hidden rounded-[2rem] glass-card p-2 border-white/5">
-                            <img src={p.image} alt={p.title} className="w-full h-full object-cover rounded-[1.5rem]" />
-                            <div className="absolute inset-0 bg-gray-950/60 backdrop-blur-sm opacity-0 hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-6 pointer-events-auto">
-                               <a href={p.liveLink} target="_blank" className="w-14 h-14 rounded-full bg-white text-gray-950 flex items-center justify-center hover:scale-110 transition-transform"><Globe size={24} /></a>
-                               {p.clientCode && <a href={p.clientCode} target="_blank" className="w-14 h-14 rounded-full bg-white/10 text-white border border-white/20 flex items-center justify-center hover:scale-110 transition-transform"><Github size={24} /></a>}
-                            </div>
-                         </div>
-                      </div>
-
-                      <div className="w-full lg:w-2/5 space-y-6 text-center lg:text-left">
-                         <div className="space-y-2">
-                            <span className="text-indigo-400 font-bold uppercase tracking-widest text-[10px]">{p.techStack?.[0]} / Project</span>
-                            <h4 className="text-3xl md:text-5xl font-bold text-white transition-colors">{p.title}</h4>
-                         </div>
-                         <p className="text-gray-400 text-lg leading-relaxed max-w-md mx-auto lg:mx-0">{p.description}</p>
-                         <div className="flex flex-wrap gap-2 justify-center lg:justify-start">
-                           {p.techStack?.slice(0, 5).map((t, ti) => (
-                              <span key={ti} className="text-[10px] bg-white/5 border border-white/10 px-3 py-1 rounded-full text-gray-300">{t}</span>
-                           ))}
-                         </div>
-                         <div className="pt-6 pointer-events-auto">
-                            <a href={p.liveLink} target="_blank" className="inline-flex items-center gap-3 text-white font-bold group/link">
-                               <span className="relative">VIEW PROJECT<span className="absolute -bottom-1 left-0 w-0 h-px bg-indigo-500 group-hover/link:w-full transition-all duration-300"></span></span>
-                               <ExternalLink size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+        <section id="projects" className="relative py-32 bg-gray-950">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-24 reveal">
+              <h2 className="text-indigo-400 font-semibold mb-2 tracking-wider uppercase text-sm">Latest Work</h2>
+              <h3 className="text-4xl md:text-5xl font-bold text-white">Featured Projects</h3>
+            </div>
+            
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              {[...personalProjects, ...clientProjects].map((p, i) => (
+                <div 
+                  key={i} 
+                  className="group reveal relative h-full flex flex-col"
+                  style={{ 
+                    animationDelay: `${i * 0.1}s`
+                  }}
+                >
+                  {/* Card Container */}
+                  <div className="relative h-full rounded-2xl overflow-hidden bg-gray-900 border border-white/10 transition-all duration-500 hover:border-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/20 flex flex-col">
+                    
+                    {/* Image Container with Overlay */}
+                    <div className="relative aspect-video overflow-hidden bg-gray-800 flex-shrink-0">
+                      <img 
+                        src={p.image} 
+                        alt={p.title} 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                      />
+                      
+                      {/* Overlay - appears on hover */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-center pb-6">
+                        <div className="flex gap-4">
+                          <a 
+                            href={p.liveLink} 
+                            target="_blank" 
+                            className="w-12 h-12 rounded-full bg-indigo-500 text-white flex items-center justify-center hover:bg-indigo-600 transition-all hover:scale-110 shadow-lg"
+                          >
+                            <Globe size={20} />
+                          </a>
+                          {p.clientCode && (
+                            <a 
+                              href={p.clientCode} 
+                              target="_blank" 
+                              className="w-12 h-12 rounded-full bg-white/10 text-white border border-white/20 flex items-center justify-center hover:bg-white/20 transition-all hover:scale-110 backdrop-blur-sm"
+                            >
+                              <Github size={20} />
                             </a>
-                         </div>
+                          )}
+                        </div>
                       </div>
-                   </div>
-                ))}
-             </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="flex-1 p-6 flex flex-col justify-between">
+                      <div className="space-y-4">
+                        <div className="space-y-2">
+                          <span className="inline-block text-indigo-400 font-bold uppercase tracking-widest text-[10px] px-3 py-1 bg-indigo-500/10 rounded-full border border-indigo-500/30">
+                            {p.techStack?.[0]}
+                          </span>
+                          <h4 className="text-xl md:text-2xl font-bold text-white group-hover:text-indigo-300 transition-colors line-clamp-2">{p.title}</h4>
+                        </div>
+                        <p className="text-gray-400 text-sm leading-relaxed line-clamp-2">{p.description}</p>
+                      </div>
+
+                      {/* Tech Stack Pills */}
+                      <div className="space-y-4 pt-4 border-t border-white/10">
+                        <div className="flex flex-wrap gap-2">
+                          {p.techStack?.slice(0, 4).map((t, ti) => (
+                            <span 
+                              key={ti} 
+                              className="text-[9px] bg-white/5 hover:bg-white/10 border border-white/10 px-2.5 py-1 rounded-lg text-gray-300 transition-colors font-medium"
+                            >
+                              {t}
+                            </span>
+                          ))}
+                          {p.techStack && p.techStack.length > 4 && (
+                            <span className="text-[9px] text-gray-500 px-2.5 py-1">+{p.techStack.length - 4} more</span>
+                          )}
+                        </div>
+                        
+                        <a 
+                          href={p.liveLink} 
+                          target="_blank" 
+                          className="inline-flex items-center gap-2 text-white font-bold text-sm group/link hover:text-indigo-300 transition-colors"
+                        >
+                          <span className="relative">
+                            VIEW PROJECT
+                            <span className="absolute -bottom-1 left-0 w-0 h-px bg-indigo-500 group-hover/link:w-full transition-all duration-300"></span>
+                          </span>
+                          <ExternalLink size={14} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
       </Element>
