@@ -1,27 +1,20 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next'
+import './globals.css'
+import LenisProvider from '../components/Lenis'
 
 export const metadata: Metadata = {
-  title: "Mujahid | Portfolio",
-  description: "A passionate Software Engineer specializing in full-stack development.",
-};
+  title: 'Mujahidul Islam — Full Stack Developer',
+  description: 'Full Stack Developer — Next.js, Node.js, PostgreSQL. Dhaka, Bangladesh.',
+}
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <SmoothScroll>
+      <body>
+        <LenisProvider>
           {children}
-        </SmoothScroll>
+        </LenisProvider>
       </body>
     </html>
-  );
+  )
 }
