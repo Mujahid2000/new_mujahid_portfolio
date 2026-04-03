@@ -13,7 +13,7 @@ const GitHubIcon = () => (
   </svg>
 )
 
-const roles = ['FULL STACK', 'NEXT.JS', 'NODE.JS', 'API']
+const roles = ['FULL STACK', 'FRONTEND', 'BACKEND', 'API']
 
 export default function Hero() {
   const [ri, setRi] = useState(0)
