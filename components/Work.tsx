@@ -26,7 +26,7 @@ export default function Work() {
         {/* Experience entry */}
         <div className="sr sr-d1 grid grid-cols-1 md:grid-cols-[200px_1fr] border-b border-border py-10 gap-6">
           <div>
-            <div className="font-mono text-xs text-orange mb-1">OCT 2025 — NOW</div>
+            <div className="font-mono text-xs text-orange mb-1">OCT 2025 — Mar 2026</div>
             <div className="font-mono text-xs text-dim">Remote · Dhaka</div>
           </div>
           <div>
